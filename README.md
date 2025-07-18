@@ -1,121 +1,50 @@
-# SPRINT 8 - IMPROCODE ACTUALIZAR PENDIENTE!!!!!!!!!
+# React + TypeScript + Vite
 
-## 📄 Descripció
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Es tracta d'una aplicació amb React que utilitza diferents plugins habituals en projectes reals de clients: mapes, calendaris i gràfics.
+Currently, two official plugins are available:
 
-Les funcionalitats principals inclouen:
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-* Menú amb enrutament a diferents seccions
-* Mapa interactiu amb ubicacions (MapBox)
-* Calendari per afegir, editar i eliminar esdeveniments (FullCalendar)
-* Gràfics amb dades estadístiques (Chart.js)
-* CRUD complet a Firestore
-* Filtratge per categories al mapa
-* Hosting del projecte
+## Expanding the ESLint configuration
 
----
+If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
 
-## 💻 Tecnologies Utilitzades
+- Configure the top-level `parserOptions` property like this:
 
-* [React](https://react.dev/)
-* [Firebase (Firestore & Hosting)](https://firebase.google.com/)
-* [Mapbox GL JS](https://docs.mapbox.com/mapbox-gl-js/)
-* [FullCalendar React](https://fullcalendar.io/docs/react)
-* [Chart.js](https://www.chartjs.org/)
-* [React Router DOM](https://reactrouter.com/)
-* [Vercel](https://vercel.com/) o Firebase Hosting
-* [SonarCloud](https://sonarcloud.io/) per auditoria de codi
-
----
-
-## 📋 Requisits
-
-* Node.js >= 18.x
-* npm >= 9.x
-* Compte a [Firebase](https://firebase.google.com/)
-* API Key de [Mapbox](https://account.mapbox.com/)
-
----
-
-## 🛠️ Instal·lació
-
-1. **Clona el repositori:**
-
-   ```bash
-   git clone https://github.com/el_teu_usuari/nom-projecte.git
-   cd nom-projecte
-   ```
-
-2. **Instal·la les dependències:**
-
-   ```bash
-   npm install
-   ```
-
-3. **Configura Firebase:**
-
-   * Crea un projecte a [Firebase Console](https://console.firebase.google.com/)
-   * Afegeix la configuració a `src/firebase/config.js`:
-
-     ```js
-     export const firebaseConfig = {
-       apiKey: "API_KEY",
-       authDomain: "PROJECT_ID.firebaseapp.com",
-       projectId: "PROJECT_ID",
-       storageBucket: "PROJECT_ID.appspot.com",
-       messagingSenderId: "SENDER_ID",
-       appId: "APP_ID"
-     };
-     ```
-
-4. **Configura Mapbox:**
-
-   * Afegeix la teva API Key al fitxer `.env`:
-
-     ```
-     VITE_MAPBOX_TOKEN=la_teva_api_key
-     ```
-
----
-
-## ▶️ Execució
-
-```bash
-npm run dev
+```js
+export default tseslint.config({
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
 ```
 
-Accedeix a l’aplicació des de: [http://localhost:5173](http://localhost:5173)
+- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
+- Optionally add `...tseslint.configs.stylisticTypeChecked`
+- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
 
----
+```js
+// eslint.config.js
+import react from 'eslint-plugin-react'
 
-## 🌐 Desplegament
-
-### Opció 1: **Firebase Hosting**
-
-```bash
-npm run build
-firebase init hosting
-firebase deploy
+export default tseslint.config({
+  // Set the react version
+  settings: { react: { version: '18.3' } },
+  plugins: {
+    // Add the react plugin
+    react,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended rules
+    ...react.configs.recommended.rules,
+    ...react.configs['jsx-runtime'].rules,
+  },
+})
 ```
-
-### Opció 2: **Vercel**
-
-1. Accedeix a [https://vercel.com](https://vercel.com)
-2. Importa el teu repositori de GitHub
-3. Configura variables d'entorn si cal (MAPBOX, etc.)
-4. Fes el deploy automàtic
-
----
-
-## 🤝 Contribucions
-
-Gràcies per voler contribuir!
-
-1. Fes un *fork* del projecte
-2. Crea una nova branca (`git checkout -b feature/nou-feature`)
-3. Fes els teus canvis i puja (`git commit -am 'Afegeix nova funcionalitat'`)
-4. Fes *push* a la branca (`git push origin feature/nou-feature`)
-5. Obre una *pull request*
-
----
