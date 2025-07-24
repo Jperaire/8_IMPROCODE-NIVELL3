@@ -1,34 +1,15 @@
-import { collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
-import { db } from "../../firebase/firestore";
+import { useContext } from "react";
 
-interface Ubicacions {
-    id: string;
-    categoria: string;
-    lat: number;
-    lng: number;
-    nom: string;
-}
+import { UbicacionsContext } from "../../context/UbicacionsContext";
 
 export const MapPage = () => {
-    const [ubicacions, setUbicacions] = useState<Ubicacions[]>([]);
+    const context = useContext(UbicacionsContext);
 
-    useEffect(() => {
-        const fetchUbicacions = async () => {
-            const dataImported = await getDocs(collection(db, "lugares"));
-            const data = dataImported.docs.map((doc) => ({
-                id: doc.id,
-                categoria: doc.data().categoria,
-                lat: doc.data().lat,
-                lng: doc.data().lng,
-                nom: doc.data().nom,
-            }));
-            console.log(data);
-            setUbicacions(data);
-        };
+    if (!context || context.loading) {
+        return <p>Loading...</p>;
+    }
 
-        fetchUbicacions();
-    }, []);
+    const { ubicacions } = context;
 
     return (
         <>
@@ -36,7 +17,7 @@ export const MapPage = () => {
             <div className="p-4">
                 <h2 className="text-xl font-bold mb-2">Llistat d'Ubicacions</h2>
                 <ul className="space-y-2">
-                    {ubicacions.map((u) => (
+                    {ubicacions?.map((u) => (
                         <li key={u.id} className="border p-2 rounded shadow">
                             <strong>{u.nom}</strong>
                             Edad: {u.id}
