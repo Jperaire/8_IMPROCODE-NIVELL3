@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from "react";
 import { UbicacionsContext } from "./UbicacionsContext";
 import { Ubicacions } from "../types/Ubicacions";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, onSnapshot } from "firebase/firestore";
 import { db } from "../firebase/firestore";
 
 export const UbicacionsProvider: React.FC = ({ children }) => {
@@ -10,9 +10,8 @@ export const UbicacionsProvider: React.FC = ({ children }) => {
     const [loading, setLoading] = useState<boolean>(true);
 
     useEffect(() => {
-        const fetchUbicacions = async () => {
-            const dataImported = await getDocs(collection(db, "lugares"));
-            const data = dataImported.docs.map((doc) => ({
+        const unsub = onSnapshot(collection(db, "lugares"), (snapshot) => {
+            const data = snapshot.docs.map((doc) => ({
                 id: doc.id,
                 categoria: doc.data().categoria,
                 lat: doc.data().lat,
@@ -22,9 +21,9 @@ export const UbicacionsProvider: React.FC = ({ children }) => {
             }));
             setUbicacions(data);
             setLoading(false);
-        };
+        });
 
-        fetchUbicacions();
+        return () => unsub();
     }, []);
 
     return (

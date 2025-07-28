@@ -3,19 +3,19 @@ import { ChartData } from "chart.js";
 
 type ChartType = "bar" | "pie";
 
+export const categories = [
+    "Parc",
+    "Museu",
+    "Iglesia",
+    "Teatre",
+    "Edifici Modernista",
+    "Castell",
+];
+
 export const chartFormat = (
     ubicacions: Ubicacions[],
     type: ChartType
 ): ChartData | null => {
-    const categories = [
-        "Parc",
-        "Museu",
-        "Iglesia",
-        "Teatre",
-        "Edifici Modernista",
-        "Castell",
-    ];
-
     const conteoUbicacions = categories.map(
         (categoria) =>
             ubicacions.filter((u) => u.categoria === categoria).length

@@ -4,6 +4,7 @@ import timeGridPlugin from "@fullcalendar/timegrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { useContext } from "react";
 import { UbicacionsContext } from "../../../context/UbicacionsContext";
+import { deleteEvent } from "../../../utils/deleteEvent";
 
 export const Calendar = () => {
     const context = useContext(UbicacionsContext);
@@ -13,6 +14,7 @@ export const Calendar = () => {
     const eventos = context?.ubicacions.map((u) => {
         console.log(u);
         return {
+            id: u.id,
             title: u.nom,
             date: u.visitas,
         };
@@ -24,6 +26,7 @@ export const Calendar = () => {
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 initialView={"dayGridMonth"}
                 events={eventos}
+                eventClick={deleteEvent}
             />
         </>
     );

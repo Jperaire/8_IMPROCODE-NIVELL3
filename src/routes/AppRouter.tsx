@@ -1,5 +1,5 @@
 import { Route, Routes } from "react-router-dom";
-import { CalendarPage, HomePage, MapPage, ChartPage, NotFound } from "../pages";
+import { CalendarPage, MainPage, MapPage, ChartPage, NotFound } from "../pages";
 import { Layout } from "../components";
 
 export const AppRouter = () => {
@@ -7,7 +7,7 @@ export const AppRouter = () => {
         <>
             <Routes>
                 <Route path="/" element={<Layout />}>
-                    <Route index element={<HomePage />} />
+                    <Route index element={<MainPage />} />
                     <Route path="/calendar" element={<CalendarPage />} />
                     <Route path="/map" element={<MapPage />} />
                     <Route path="/chart" element={<ChartPage />} />
