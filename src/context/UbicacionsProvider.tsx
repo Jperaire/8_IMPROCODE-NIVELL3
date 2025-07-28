@@ -27,7 +27,7 @@ export const UbicacionsProvider: React.FC = ({ children }) => {
     }, []);
 
     return (
-        <UbicacionsContext.Provider value={{ ubicacions, loading }}>
+        <UbicacionsContext.Provider value={{ ubicacions, loading: false }}>
             {children}
         </UbicacionsContext.Provider>
     );

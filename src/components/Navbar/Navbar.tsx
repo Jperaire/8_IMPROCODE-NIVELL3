@@ -26,7 +26,7 @@ export const Navbar = () => {
                     Calendar
                 </NavLink>
                 <NavLink
-                    to="/grafics"
+                    to="/chart"
                     className={({ isActive }) =>
                         isActive
                             ? `${styles.link} ${styles.active}`

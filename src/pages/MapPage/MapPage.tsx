@@ -11,6 +11,8 @@ export const MapPage = () => {
 
     const { ubicacions } = context;
 
+    console.log(ubicacions);
+
     return (
         <>
             <h1>MapPage</h1>
