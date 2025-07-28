@@ -19,11 +19,15 @@ ChartJS.register(
     Legend
 );
 
-export const BarChart = ({ chartData }: ChartData) => {
+interface BarChartProps {
+    data: ChartData<"bar">;
+}
+
+export const BarChart = ({ data }: BarChartProps) => {
     return (
         <>
             <h2>Bar Chart</h2>
-            <Bar data={chartData} />
+            <Bar data={data} />
         </>
     );
 };

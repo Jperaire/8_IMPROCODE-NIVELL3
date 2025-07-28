@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
-import { CalendarPage, HomePage, MapPage, NotFound } from "../pages";
+import { CalendarPage, HomePage, MapPage, ChartPage, NotFound } from "../pages";
 import { Layout } from "../components";
-import { ChartPage } from "../pages/ChartPage/ChartPage";
 
 export const AppRouter = () => {
     return (

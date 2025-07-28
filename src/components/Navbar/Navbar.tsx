@@ -33,7 +33,7 @@ export const Navbar = () => {
                             : styles.link
                     }
                 >
-                    Grafics
+                    Charts
                 </NavLink>
                 <NavLink
                     to="/map"

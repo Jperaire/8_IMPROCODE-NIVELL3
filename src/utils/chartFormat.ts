@@ -1,4 +1,7 @@
-import { Ubicacions, ChartType, ChartData } from "../types";
+import { Ubicacions } from "../types";
+import { ChartData } from "chart.js";
+
+type ChartType = "bar" | "pie";
 
 export const chartFormat = (
     ubicacions: Ubicacions[],

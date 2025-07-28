@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { UbicacionsContext } from "../../context/UbicacionsContext";
 import { BarChart, PieChart } from "./components";
 import { chartFormat } from "../../utils/chartFormat";
+import { ChartData } from "chart.js";
 
 export const ChartPage = () => {
     const context = useContext(UbicacionsContext);
@@ -12,8 +13,8 @@ export const ChartPage = () => {
 
     const { ubicacions } = context;
 
-    const barChartFormat = chartFormat(ubicacions, "bar");
-    const pieChartFormat = chartFormat(ubicacions, "pie");
+    const barChartFormat = chartFormat(ubicacions, "bar") as ChartData<"bar">;
+    const pieChartFormat = chartFormat(ubicacions, "pie") as ChartData<"pie">;
 
     if (!barChartFormat || !pieChartFormat) {
         return <p>Error generating charts</p>;
@@ -21,8 +22,8 @@ export const ChartPage = () => {
 
     return (
         <>
-            <BarChart chartData={barChartFormat} />
-            <PieChart chartData={pieChartFormat} />
+            <BarChart data={barChartFormat} />
+            <PieChart data={pieChartFormat} />
         </>
     );
 };
