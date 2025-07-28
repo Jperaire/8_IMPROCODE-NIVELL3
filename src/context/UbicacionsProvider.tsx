@@ -18,6 +18,7 @@ export const UbicacionsProvider: React.FC = ({ children }) => {
                 lat: doc.data().lat,
                 lng: doc.data().lng,
                 nom: doc.data().nom,
+                visitas: doc.data().visitas,
             }));
             setUbicacions(data);
             setLoading(false);
@@ -27,7 +28,7 @@ export const UbicacionsProvider: React.FC = ({ children }) => {
     }, []);
 
     return (
-        <UbicacionsContext.Provider value={{ ubicacions, loading: false }}>
+        <UbicacionsContext.Provider value={{ ubicacions, loading }}>
             {children}
         </UbicacionsContext.Provider>
     );

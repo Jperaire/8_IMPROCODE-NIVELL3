@@ -4,6 +4,7 @@ export interface Ubicacions {
     lat: number;
     lng: number;
     nom: string;
+    visitas?: string;
 }
 
 export interface UbicacionsContextProps {
