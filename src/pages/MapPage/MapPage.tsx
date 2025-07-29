@@ -15,7 +15,7 @@ export const MapPage = () => {
 
     return (
         <>
-            <h1>MapPage</h1>
+            <h2>MAP</h2>
             <div className="p-4">
                 <h2 className="text-xl font-bold mb-2">Llistat d'Ubicacions</h2>
                 <ul className="space-y-2">

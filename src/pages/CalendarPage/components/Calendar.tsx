@@ -5,6 +5,7 @@ import interactionPlugin from "@fullcalendar/interaction";
 import { useContext } from "react";
 import { UbicacionsContext } from "../../../context/UbicacionsContext";
 import { deleteEvent } from "../../../utils/deleteEvent";
+import "./calendar.css";
 
 export const Calendar = () => {
     const context = useContext(UbicacionsContext);
@@ -27,6 +28,9 @@ export const Calendar = () => {
                 initialView={"dayGridMonth"}
                 events={eventos}
                 eventClick={deleteEvent}
+                firstDay={1}
+                fixedWeekCount={false}
+                height={"auto"}
             />
         </>
     );

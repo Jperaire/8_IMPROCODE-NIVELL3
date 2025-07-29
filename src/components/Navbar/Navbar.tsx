@@ -13,7 +13,7 @@ export const Navbar = () => {
                             : styles.link
                     }
                 >
-                    Home
+                    HOME
                 </NavLink>
                 <NavLink
                     to="/calendar"
@@ -23,7 +23,7 @@ export const Navbar = () => {
                             : styles.link
                     }
                 >
-                    Calendar
+                    CALENDAR
                 </NavLink>
                 <NavLink
                     to="/chart"
@@ -33,7 +33,7 @@ export const Navbar = () => {
                             : styles.link
                     }
                 >
-                    Charts
+                    CHARTS
                 </NavLink>
                 <NavLink
                     to="/map"
@@ -43,7 +43,7 @@ export const Navbar = () => {
                             : styles.link
                     }
                 >
-                    Map
+                    MAP
                 </NavLink>
             </div>
         </nav>

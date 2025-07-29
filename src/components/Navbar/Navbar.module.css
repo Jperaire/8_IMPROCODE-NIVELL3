@@ -1,13 +1,16 @@
 .navbar {
     padding: 1rem 0;
-    background-color: #f2adad;
+    background-color: var(--primary-color);
 }
 
 .link {
-    color: #333;
-    font-weight: 400;
+    color: white;
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    padding: 10px 20px;
 }
 
 .active {
     font-weight: 700;
+    border: 1px solid white;
 }

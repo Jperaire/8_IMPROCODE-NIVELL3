@@ -16,7 +16,7 @@ interface PieChartProps {
 export const PieChart = ({ data }: PieChartProps) => {
     return (
         <>
-            <h2>Pie Chart</h2>
+            <h2>PIE CHART</h2>
             <Pie data={data} />
         </>
     );

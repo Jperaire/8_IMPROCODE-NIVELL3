@@ -1,0 +1,74 @@
+.fc-event {
+    background-color: var(--secondary-color);
+    font-size: 0.6rem;
+    padding: 0.2rem 0.3rem;
+    line-height: 1.2;
+    color: white;
+    border-radius: 6px;
+}
+
+.fc-event:hover {
+    filter: brightness(1.1);
+    cursor: pointer;
+}
+
+.fc-toolbar-title {
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 1.1rem !important;
+}
+
+.fc-col-header-cell {
+    background-color: var(--primary-color);
+}
+
+.fc-daygrid-day {
+    background-color: #f9f9f9;
+    border: 1px solid var(--primary-color) !important;
+}
+
+.fc-daygrid-day-number {
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 0.8rem;
+}
+
+.fc-col-header-cell-cushion {
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    padding: 0.8rem !important;
+}
+
+.fc-today-button {
+    background-color: var(--third-color) !important;
+    border: 1px solid var(--primary-color) !important;
+    color: var(--primary-color) !important;
+    text-transform: uppercase !important;
+    font-size: 0.8rem !important;
+    font-weight: 700 !important;
+}
+
+.fc-today-button:disabled {
+    cursor: not-allowed;
+}
+
+.fc-button-group .fc-button {
+    padding: 4px 6px;
+    height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--secondary-color);
+}
+
+.fc-icon {
+    font-size: 12px !important;
+    font-weight: 700;
+}
+
+.fc-button-group {
+    gap: 4px;
+}

@@ -39,7 +39,7 @@ export const NewEventForm = () => {
 
     return (
         <div>
-            <h2>Crear Lugar</h2>
+            <h2>ADD EVENT</h2>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -53,7 +53,7 @@ export const NewEventForm = () => {
                     value={categoria}
                     onChange={(e) => setCategoria(e.target.value)}
                 >
-                    <option value="">Selecciona una categoría</option>
+                    <option value="">Choose a category</option>
                     {categories.map((cat, index) => (
                         <option value={cat} key={index}>
                             {cat}
