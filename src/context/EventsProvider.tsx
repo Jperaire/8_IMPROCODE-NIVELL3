@@ -23,7 +23,6 @@ export const EventsProvider: React.FC<MyComponentProps> = ({ children }) => {
                 name: doc.data().name,
                 visitDate: doc.data().visitDate,
             }));
-            console.log(data);
             setEvents(data);
             setLoading(false);
         });
