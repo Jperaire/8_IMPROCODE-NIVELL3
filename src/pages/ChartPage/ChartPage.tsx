@@ -1,20 +1,21 @@
 import { useContext } from "react";
-import { UbicacionsContext } from "../../context/UbicacionsContext";
+import { EventsContext } from "../../context/EventsContext";
 import { BarChart, PieChart } from "./components";
 import { chartFormat } from "../../utils/chartFormat";
 import { ChartData } from "chart.js";
+import styles from "./ChartPage.module.css";
 
 export const ChartPage = () => {
-    const context = useContext(UbicacionsContext);
+    const context = useContext(EventsContext);
 
     if (!context || context.loading) {
         return <p>Loading...</p>;
     }
 
-    const { ubicacions } = context;
+    const { events } = context;
 
-    const barChartFormat = chartFormat(ubicacions, "bar") as ChartData<"bar">;
-    const pieChartFormat = chartFormat(ubicacions, "pie") as ChartData<"pie">;
+    const barChartFormat = chartFormat(events, "bar") as ChartData<"bar">;
+    const pieChartFormat = chartFormat(events, "pie") as ChartData<"pie">;
 
     if (!barChartFormat || !pieChartFormat) {
         return <p>Error generating charts</p>;
@@ -22,8 +23,24 @@ export const ChartPage = () => {
 
     return (
         <>
-            <BarChart data={barChartFormat} />
-            <PieChart data={pieChartFormat} />
+            <h2>
+                EVENT DISTRIBUTION <br />
+                BY CATEGORY
+            </h2>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 col-md-6">
+                        <div className={styles.chartContainer}>
+                            <BarChart data={barChartFormat} />
+                        </div>
+                    </div>
+                    <div className="col-12 col-md-6">
+                        <div className={styles.chartContainer}>
+                            <PieChart data={pieChartFormat} />
+                        </div>
+                    </div>
+                </div>
+            </div>
         </>
     );
 };

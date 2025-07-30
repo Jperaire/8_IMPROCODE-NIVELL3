@@ -1,24 +1,26 @@
-import { Ubicacions } from "../types";
+import { Events } from "../types";
 import { ChartData } from "chart.js";
 
 type ChartType = "bar" | "pie";
 
 export const categories = [
-    "Parc",
-    "Museu",
-    "Iglesia",
-    "Teatre",
-    "Edifici Modernista",
-    "Castell",
+    "Attraction",
+    "Concert Hall",
+    "Stadium",
+    "Street",
+    "Architecture",
+    "Beach",
+    "Castle",
+    "Historic",
+    "Park",
 ];
 
 export const chartFormat = (
-    ubicacions: Ubicacions[],
+    events: Events[],
     type: ChartType
 ): ChartData | null => {
-    const conteoUbicacions = categories.map(
-        (categoria) =>
-            ubicacions.filter((u) => u.categoria === categoria).length
+    const numberOfCategories = categories.map(
+        (category) => events.filter((u) => u.category === category).length
     );
 
     const backgroundColor = [
@@ -41,7 +43,7 @@ export const chartFormat = (
 
     const dataset = {
         label: "Categories",
-        data: conteoUbicacions,
+        data: numberOfCategories,
         backgroundColor,
         borderWidth: 1,
         borderColor,

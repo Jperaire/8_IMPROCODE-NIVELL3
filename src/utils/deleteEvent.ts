@@ -4,15 +4,15 @@ import { EventClickArg } from "@fullcalendar/core";
 
 export const deleteEvent = async (clickInfo: EventClickArg) => {
     const confirmDelete = confirm(
-        `¿Eliminar evento "${clickInfo.event.title}"?`
+        `¿Do you want to delete the event "${clickInfo.event.title}"?`
     );
     if (!confirmDelete) return;
 
     try {
-        await deleteDoc(doc(db, "lugares", clickInfo.event.id));
-        alert("Evento eliminado");
+        await deleteDoc(doc(db, "places", clickInfo.event.id));
+        alert("Event deleted");
     } catch (error) {
-        console.error("Error al eliminar:", error);
-        alert("Error al eliminar evento");
+        console.error("Error deleting:", error);
+        alert("Error deleting event");
     }
 };

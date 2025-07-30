@@ -2,56 +2,59 @@ import { useState } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../../firebase/firestore";
 import { categories } from "../../../utils/chartFormat";
+import styles from "./NewEventForm.module.css";
 
 export const NewEventForm = () => {
-    const [nom, setNom] = useState("");
-    const [categoria, setCategoria] = useState("");
+    const [name, setName] = useState("");
+    const [category, setCategory] = useState("");
     const [lat, setLat] = useState<number | string>("");
     const [lng, setLng] = useState<number | string>("");
-    const [visitas, setVisitas] = useState("");
+    const [visitDate, setVisitDate] = useState("");
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (!nom || !categoria || !lat || !lng || !visitas) {
-            alert("Por favor completa todos los campos.");
+        if (!name || !category || !lat || !lng || !visitDate) {
+            alert("Please fill in all fields.");
             return;
         }
 
         try {
-            await addDoc(collection(db, "lugares"), {
-                nom,
-                categoria,
+            await addDoc(collection(db, "places"), {
+                name,
+                category,
                 lat: Number(lat),
                 lng: Number(lng),
-                visitas,
+                visitDate,
             });
 
-            setNom("");
-            setCategoria("");
+            setName("");
+            setCategory("");
             setLat("");
             setLng("");
-            setVisitas("");
+            setVisitDate("");
         } catch (e) {
-            console.error("Error al agregar documento:", e);
+            console.error("Error adding document:", e);
         }
     };
 
     return (
-        <div>
-            <h2>ADD EVENT</h2>
-            <form onSubmit={handleSubmit}>
+        <>
+            <h2>ADD EVENT FORM</h2>
+
+            <form onSubmit={handleSubmit} className={styles.container}>
                 <input
                     type="text"
-                    placeholder="Nombre"
-                    value={nom}
-                    onChange={(e) => setNom(e.target.value)}
+                    placeholder="Name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    className={styles.input}
                 />
-
                 <select
                     name="categories"
-                    value={categoria}
-                    onChange={(e) => setCategoria(e.target.value)}
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
+                    className={styles.select}
                 >
                     <option value="">Choose a category</option>
                     {categories.map((cat, index) => (
@@ -60,27 +63,30 @@ export const NewEventForm = () => {
                         </option>
                     ))}
                 </select>
-
                 <input
                     type="number"
-                    placeholder="Latitud"
+                    placeholder="Latitude"
                     value={lat}
                     onChange={(e) => setLat(e.target.value)}
+                    className={styles.input}
                 />
                 <input
                     type="number"
-                    placeholder="Longitud"
+                    placeholder="Longitude"
                     value={lng}
                     onChange={(e) => setLng(e.target.value)}
+                    className={styles.input}
                 />
                 <input
                     type="date"
-                    placeholder="Fecha Visita"
-                    value={visitas}
-                    onChange={(e) => setVisitas(e.target.value)}
+                    value={visitDate}
+                    onChange={(e) => setVisitDate(e.target.value)}
+                    className={styles.date}
                 />
-                <button type="submit">Agregar Lugar</button>
+                <button type="submit" className={styles.button}>
+                    SEND
+                </button>
             </form>
-        </div>
+        </>
     );
 };

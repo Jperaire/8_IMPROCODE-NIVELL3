@@ -1,17 +1,14 @@
 import { useContext } from "react";
-
-import { UbicacionsContext } from "../../context/UbicacionsContext";
+import { EventsContext } from "../../context/EventsContext";
 
 export const MapPage = () => {
-    const context = useContext(UbicacionsContext);
+    const context = useContext(EventsContext);
 
     if (!context || context.loading) {
         return <p>Loading...</p>;
     }
 
-    const { ubicacions } = context;
-
-    console.log(ubicacions);
+    const { events } = context;
 
     return (
         <>
@@ -19,9 +16,9 @@ export const MapPage = () => {
             <div className="p-4">
                 <h2 className="text-xl font-bold mb-2">Llistat d'Ubicacions</h2>
                 <ul className="space-y-2">
-                    {ubicacions?.map((u) => (
+                    {events?.map((u) => (
                         <li key={u.id} className="border p-2 rounded shadow">
-                            <strong>{u.nom}</strong>
+                            <strong>{u.name}</strong>
                             Edad: {u.id}
                         </li>
                     ))}

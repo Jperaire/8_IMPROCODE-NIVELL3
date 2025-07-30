@@ -1,2 +1,1 @@
-export * from "./Chart";
-export * from "./Ubicacions";
+export * from "./Events";
