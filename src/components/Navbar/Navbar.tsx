@@ -6,7 +6,7 @@ export const Navbar = () => {
         <nav className={`navbar navbar-dark custom-navbar`}>
             <div className="container-fluid">
                 <div className="navbar-brand custom-navbar-brand">
-                    EVENTS IN THE CITY
+                    EVENT MANAGER
                 </div>
                 <button
                     className="navbar-toggler custom-navbar-toggler"
