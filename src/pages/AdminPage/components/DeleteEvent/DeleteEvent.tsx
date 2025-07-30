@@ -24,7 +24,7 @@ export const DeleteEvent = () => {
     };
 
     return (
-        <>
+        <article>
             <div className={styles.container}>
                 <h3>DELETE EVENT</h3>
                 <select
@@ -48,6 +48,6 @@ export const DeleteEvent = () => {
                     Delete
                 </button>
             </div>
-        </>
+        </article>
     );
 };

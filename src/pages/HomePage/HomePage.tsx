@@ -4,9 +4,12 @@ import { settings, map, calendar, chart } from "../../assets/images";
 
 export const HomePage = () => {
     return (
-        <div className={styles.container}>
-            <h1 className={styles.title}>WELCOME TO EVENT MANAGER</h1>
-            <div className={styles.cardGrid}>
+        <section className={styles.container}>
+            <header>
+                <h1 className={styles.title}>WELCOME TO EVENT MANAGER</h1>
+            </header>
+
+            <article className={styles.cardGrid}>
                 <div className={styles.card}>
                     <img
                         src={calendar}
@@ -43,7 +46,7 @@ export const HomePage = () => {
                         Go
                     </Link>
                 </div>
-            </div>
-        </div>
+            </article>
+        </section>
     );
 };

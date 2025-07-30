@@ -25,7 +25,7 @@ export const Calendar = () => {
     });
 
     return (
-        <>
+        <section>
             <FullCalendar
                 plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
                 initialView={"dayGridMonth"}
@@ -38,6 +38,6 @@ export const Calendar = () => {
             <p className={styles.deleteInfo}>
                 Delete an event by clicking on it
             </p>
-        </>
+        </section>
     );
 };

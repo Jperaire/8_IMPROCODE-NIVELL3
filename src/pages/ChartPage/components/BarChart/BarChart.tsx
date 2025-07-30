@@ -25,9 +25,9 @@ interface BarChartProps {
 
 export const BarChart = ({ data }: BarChartProps) => {
     return (
-        <>
+        <article>
             <h2>BAR CHART</h2>
             <Bar data={data} />
-        </>
+        </article>
     );
 };

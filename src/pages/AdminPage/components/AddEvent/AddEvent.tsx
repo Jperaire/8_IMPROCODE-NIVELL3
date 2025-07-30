@@ -39,7 +39,7 @@ export const AddEvent = () => {
     };
 
     return (
-        <>
+        <article>
             <div className={styles.container}>
                 <h3>ADD EVENT</h3>
 
@@ -89,6 +89,6 @@ export const AddEvent = () => {
                     </button>
                 </form>
             </div>
-        </>
+        </article>
     );
 };

@@ -3,7 +3,7 @@ import styles from "./NotFound.module.css";
 
 export const NotFound = () => {
     return (
-        <div className={styles.container}>
+        <section className={styles.container}>
             <h1 className={styles.title}>🤔 ¡Oops!</h1>
             <p>Parece que te has perdido...</p>
 
@@ -16,6 +16,6 @@ export const NotFound = () => {
             <Link to="/" className={styles.button}>
                 🏠 Volver al inicio
             </Link>
-        </div>
+        </section>
     );
 };

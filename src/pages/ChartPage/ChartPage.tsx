@@ -23,11 +23,14 @@ export const ChartPage = () => {
 
     return (
         <>
-            <h2>
-                EVENT DISTRIBUTION <br />
-                BY CATEGORY
-            </h2>
-            <div className="container">
+            <header>
+                <h2>
+                    EVENT DISTRIBUTION <br />
+                    BY CATEGORY
+                </h2>
+            </header>
+
+            <section className="container">
                 <div className="row">
                     <div className="col-12 col-md-6">
                         <div className={styles.chartContainer}>
@@ -40,7 +43,7 @@ export const ChartPage = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
         </>
     );
 };
