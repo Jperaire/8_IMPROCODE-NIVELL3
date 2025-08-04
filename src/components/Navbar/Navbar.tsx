@@ -4,8 +4,10 @@ import "./Navbar.css";
 export const Navbar = () => {
     return (
         <header>
-            <nav className={`navbar navbar-dark custom-navbar`}>
-                <div className="container-fluid">
+            <nav
+                className={`navbar navbar-expand-md navbar-dark custom-navbar`}
+            >
+                <div className="container-fluid p-2 px-5 mw-75">
                     <div className="navbar-brand custom-navbar-brand">
                         EVENT MANAGER
                     </div>
@@ -20,8 +22,11 @@ export const Navbar = () => {
                     >
                         <span className="navbar-toggler-icon" />
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarNav">
-                        <ul className="navbar-nav ms-auto gap-2 align-items-center m-3">
+                    <div
+                        className="collapse navbar-collapse mt-5 mt-md-0"
+                        id="navbarNav"
+                    >
+                        <ul className="navbar-nav ms-auto gap-2 align-items-center">
                             <li className="nav-item">
                                 <NavLink
                                     to="/"

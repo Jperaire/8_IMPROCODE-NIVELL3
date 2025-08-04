@@ -28,18 +28,12 @@ export const ChartPage = () => {
                 BY CATEGORY
             </h2>
 
-            <div className="container">
-                <div className="row">
-                    <div className="col-12 col-md-6">
-                        <div className={styles.chartContainer}>
-                            <BarChart data={barChartFormat} />
-                        </div>
-                    </div>
-                    <div className="col-12 col-md-6">
-                        <div className={styles.chartContainer}>
-                            <PieChart data={pieChartFormat} />
-                        </div>
-                    </div>
+            <div className={`container ${styles.chartsContainer}`}>
+                <div className={styles.chartContainer}>
+                    <BarChart data={barChartFormat} />
+                </div>
+                <div className={styles.chartContainer}>
+                    <PieChart data={pieChartFormat} />
                 </div>
             </div>
         </section>

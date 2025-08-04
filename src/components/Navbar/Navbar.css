@@ -1,12 +1,12 @@
 .navbar.custom-navbar {
     background-color: var(--primary-color);
-    margin-bottom: 50px;
 }
 
 .navbar-brand.custom-navbar-brand {
-    font-size: 0.8rem;
-    color: white;
+    font-size: 1rem;
+    color: var(--third-color);
     letter-spacing: 2px;
+    font-weight: 700;
 }
 
 .nav-link.custom-nav-link {
