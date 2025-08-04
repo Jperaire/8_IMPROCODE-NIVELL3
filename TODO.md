@@ -1,5 +1,0 @@
-# TODO
-
--   MAPAS
--   README
--   ENV EXAMPLE
