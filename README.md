@@ -35,8 +35,8 @@ Este proyecto forma parte del Sprint 8 del curso de Frontend. El objetivo es des
 1. Clona el repositorio:
 
 ```bash
-git clone https://github.com/Jperaire/8_IMPROCODE-NIVELL3.git
-cd 8_IMPROCODE-NIVELL3
+git clone https://github.com/Jperaire/8_IMPROCODE.git
+cd 8_IMPROCODE
 ```
 
 2. Instala las dependencias:
