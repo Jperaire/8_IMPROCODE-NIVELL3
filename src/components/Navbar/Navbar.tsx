@@ -23,7 +23,7 @@ export const Navbar = () => {
                         <span className="navbar-toggler-icon" />
                     </button>
                     <div
-                        className="collapse navbar-collapse mt-5 mt-md-0"
+                        className="collapse navbar-collapse mt-3 mt-md-0"
                         id="navbarNav"
                     >
                         <ul className="navbar-nav ms-auto gap-2 align-items-center">
